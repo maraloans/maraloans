@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mara Loans</title>
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Navbar Styling */
+        .navbar {
+            background-color: #274c37; /* Dark green from logo */
+            padding: 10px 20px;
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .logo img {
+            height: 50px;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links li a {
+            color: #ffffff;
+            text-decoration: none;
+            padding: 10px 15px;
+            transition: background-color 0.3s ease;
+        }
+
+        .nav-links li a:hover {
+            background-color: #3b6749; /* Slightly lighter green */
+            border-radius: 5px;
+        }
+
+        .apply-button {
+            background-color: #f4b841; /* Gold from the logo */
+            color: #274c37; /* Dark green text */
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+        .apply-button:hover {
+            background-color: #f0a01a; /* Darker gold on hover */
+        }
+
+        /* Mobile Responsive Navbar */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .menu-toggle div {
+            width: 25px;
+            height: 3px;
+            background-color: #fff;
+            margin: 4px;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                text-align: center;
+                background-color: #274c37; /* Dark green */
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .navbar .container {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .logo {
+                margin-bottom: 10px;
+            }
+
+            .menu-toggle {
+                display: flex;
+            }
+        }
+
+        /* Page Content */
+        .hero {
+           background-image: url('path/to/your/image.jpg'); /* Replace with your image path */
+           background-color: #e9f5ec; /* Fallback color */
+           background-size: cover; /* Scale the background image to cover the section */
+           background-position: center; /* Center the image within the section */
+           background-repeat: no-repeat; /* Prevent the image from repeating */
+           color: #000000;
+           padding: 100px 20px;
+           text-align: center;
+        }
+
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+        }
+
+        .hero a {
+            text-decoration: none;
+            color: #ffffff;
+            background-color: #f4b841;
+            padding: 15px 30px;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        .hero a:hover {
+            background-color: #f0a01a;
+        }
+
+        .section {
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        .section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #274c37;
+        }
+
+        .section p {
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .services .service-item {
+            margin: 20px 0;
+        }
+
+        .about {
+            background-color: #f4b841;
+            color: #274c37;
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        .about h2 {
+            color: #fff;
+        }
+
+        .apply-form {
+            max-width: 600px;
+            margin: 30px auto;
+            padding: 30px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .apply-form input,
+        .apply-form textarea,
+        .apply-form select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .apply-form button {
+            background-color: #274c37;
+            color: #fff;
+            padding: 15px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        .apply-form button:hover {
+            background-color: #3b6749;
+        }
+
+        .footer {
+            background-color: #274c37;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .footer p {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <img src="static/images/logo.png" alt="Mara Loans Logo">
+            </div>
+            <div class="menu-toggle">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+            <ul class="nav-links">
+
+                <li><a href="#apply" class="apply-button">Apply Now</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <h1>Welcome to Mara Loans</h1>
+        <p>Your trusted partner for quick and easy loans.</p>
+        <a href="#apply">Get Started Today</a>
+    </section>
+
+    <!-- Services Section -->
+    <section class="section services" id="services">
+        <h2>Our Services</h2>
+        <div class="service-item">
+            <h3>Personal Loans</h3>
+            <p>Get personal loans with low interest rates and flexible repayment options.</p>
+        </div>
+        <div class="service-item">
+            <h3>Business Loans</h3>
+            <p>Empower your business with our quick and easy business loan solutions.</p>
+        </div>
+        <div class="service-item">
+            <h3>Home Loans</h3>
+            <p>Make your dream home a reality with our affordable home loan plans.</p>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section class="about" id="about">
+        <h2>About Mara Loans</h2>
+        <p>At Mara Loans, we are committed to providing our customers with the best financial solutions. Whether you're looking for personal, business, or home loans, we have the right plan for you. Our team of experts is here to guide you through every step of the process, ensuring that you get the loan that's right for you.</p>
+    </section>
+
+    <!-- Apply Now Section -->
+   
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <p>&copy; 2024 Mara Loans. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Toggle menu for mobile view
+        document.querySelector('.menu-toggle').addEventListener('click', function() {
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
+    </script>
+</body>
+</html>
